@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shopping Cart - Coffee Shop</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@100;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: "Be Vietnam Pro", sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
+<div class="layout-container flex h-full grow flex-col">
+<!-- Top Navigation Bar -->
+<main class="flex-1 px-4 md:px-20 lg:px-40 py-8">
+<div class="max-w-[1200px] mx-auto">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 mb-6">
+<a class="text-slate-500 dark:text-slate-400 text-sm font-medium hover:text-primary" href="../index.html">Home</a>
+<span class="material-symbols-outlined text-slate-400 text-sm">chevron_right</span>
+<span class="text-slate-900 dark:text-white text-sm font-medium">Shopping Cart</span>
+</div>
+<!-- Page Heading -->
+<div class="flex flex-col gap-1 mb-8">
+<h1 class="text-slate-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Your Shopping Cart</h1>
+<p class="text-slate-500 dark:text-slate-400 text-base">You have <span class="font-bold text-primary">3 items</span> in your cart</p>
+</div>
+
+
+<div id="cart-container" class="lg:col-span-2 space-y-6">
+  <div class="overflow-hidden rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm">
+    <table class="w-full text-left border-collapse">
+      <thead>
+        <tr class="bg-slate-50 dark:bg-zinc-800/50 border-b border-slate-200 dark:border-zinc-800">
+          <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Product</th>
+          <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 hidden md:table-cell">Price</th>
+          <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Quantity</th>
+          <th class="px-6 py-4 text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 text-right">Total</th>
+          <th class="px-6 py-4 w-10"></th>
+        </tr>
+      </thead>
+
+
+      <tbody id="cart-items" class="divide-y divide-slate-100 dark:divide-zinc-800">
+        
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- RESUMEN DE TOTALES -->
+<div id="cart-summary" class="mt-6 rounded-xl border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-sm p-6 flex flex-col gap-4 max-w-md ml-auto">
+    <h2 class="text-slate-900 dark:text-white font-black text-lg">Order Summary</h2>
+    <div class="flex justify-between text-sm text-slate-600 dark:text-slate-400">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">$0.00</span>
+    </div>
+    <div class="flex justify-between text-sm text-slate-600 dark:text-slate-400">
+        <span>Tax</span>
+        <span id="cart-impuesto">$0.00</span>
+    </div>
+    <div class="border-t border-slate-200 dark:border-zinc-800 pt-4 flex justify-between font-black text-slate-900 dark:text-white text-base">
+        <span>Total</span>
+        <span id="cart-total">$0.00</span>
+    </div>
+    <button class="carrito w-full bg-primary text-white font-bold py-3 rounded-xl hover:opacity-90 transition-opacity">
+        Proceed to Checkout
+    </button>
+</div>
+
+</main>
+<!-- Footer for context -->
+<footer class="mt-20 border-t border-slate-200 dark:border-zinc-800 px-4 md:px-20 lg:px-40 py-10 bg-white dark:bg-zinc-900">
+<div class="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-10">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined font-bold">coffee</span>
+<span class="font-black text-lg text-slate-900 dark:text-white">Coffee Shop</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        Ethically sourced beans from around the world, roasted small-batch to perfection.
+                    </p>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4">Shop</h4>
+<ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary" href="#">All Coffee</a></li>
+<li><a class="hover:text-primary" href="#">Subscriptions</a></li>
+<li><a class="hover:text-primary" href="#">Brewing Gear</a></li>
+<li><a class="hover:text-primary" href="#">Gift Cards</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4">Help</h4>
+<ul class="space-y-2 text-sm text-slate-500 dark:text-slate-400">
+<li><a class="hover:text-primary" href="#">Shipping Policy</a></li>
+<li><a class="hover:text-primary" href="#">Refunds &amp; Returns</a></li>
+<li><a class="hover:text-primary" href="#">Contact Us</a></li>
+<li><a class="hover:text-primary" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-4">Newsletter</h4>
+<div class="flex gap-2">
+<input class="bg-slate-100 dark:bg-zinc-800 border-none rounded-lg text-sm w-full focus:ring-1 focus:ring-primary" placeholder="Your email" type="text"/>
+<button class="bg-slate-900 dark:bg-zinc-700 text-white px-4 py-2 rounded-lg font-bold text-sm">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-[1200px] mx-auto mt-12 pt-6 border-t border-slate-100 dark:border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-slate-400">© 2024 Coffee Shop Inc. All rights reserved.</p>
+<div class="flex gap-6 text-xs text-slate-400">
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+<a class="hover:text-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+
+</div>
+
+<script type="module" src="../../app/pages/carrito.js"></script>
+</body></html>

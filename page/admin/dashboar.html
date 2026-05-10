@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard Overview</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#1b140d] dark:text-[#f3ede7]">
+<div class="flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<aside class="w-64 flex-shrink-0 border-r border-[#e7dbcf] dark:border-[#3d2e1f] bg-background-light dark:bg-background-dark flex flex-col">
+<div class="p-6 flex flex-col h-full">
+<div class="flex items-center gap-3 mb-8">
+<div class="bg-primary rounded-full size-10 flex items-center justify-center text-white">
+<span class="material-symbols-outlined">coffee</span>
+</div>
+<div class="flex flex-col">
+<h1 class="text-[#1b140d] dark:text-white text-base font-bold leading-none">Bean &amp; Brew</h1>
+<p class="text-primary text-xs font-medium uppercase tracking-wider mt-1">Admin Portal</p>
+</div>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1">dashboard</span>
+<p class="text-sm font-bold">Dashboard</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#1b140d] dark:text-[#f3ede7] hover:bg-primary/5 transition-colors" href="./agregarProducto.html">
+<span class="material-symbols-outlined">inventory_2</span>
+<p class="text-sm font-medium">Products</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#1b140d] dark:text-[#f3ede7] hover:bg-primary/5 transition-colors" href="./listaUser.html">
+<span class="material-symbols-outlined">group</span>
+<p class="text-sm font-medium">Users</p>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col overflow-y-auto">
+<!-- TopNavBar -->
+<header class="flex items-center justify-between border-b border-[#e7dbcf] dark:border-[#3d2e1f] px-8 py-4 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-10">
+<div class="flex items-center gap-8">
+<h2 class="text-[#1b140d] dark:text-white text-xl font-bold tracking-tight">Dashboard Overview</h2>
+<label class="flex items-center min-w-64 h-10">
+</label>
+</div>
+</header>
+<!-- Dashboard Content Area -->
+<div class="p-8 space-y-8">
+<!-- Stats Row -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="bg-white dark:bg-[#2d2116] flex flex-col gap-2 rounded-xl p-6 border border-[#e7dbcf] dark:border-[#3d2e1f] shadow-sm">
+<div class="flex justify-between items-start">
+<p class="text-[#9a734c] text-sm font-medium uppercase tracking-wider">Total Sales</p>
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">payments</span>
+</div>
+</div>
+<p id="totales" class="text-[#1b140d] dark:text-white tracking-tight text-3xl font-bold"></p>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-[#07880e] text-sm">trending_up</span>
+<p class="text-[#07880e] text-sm font-bold">+12%</p>
+<p class="text-[#9a734c] text-xs">from yesterday</p>
+</div>
+</div>
+<div class="bg-white dark:bg-[#2d2116] flex flex-col gap-2 rounded-xl p-6 border border-[#e7dbcf] dark:border-[#3d2e1f] shadow-sm">
+<div class="flex justify-between items-start">
+<p class="text-[#9a734c] text-sm font-medium uppercase tracking-wider">Active Users</p>
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">person_celebrate</span>
+</div>
+</div>
+<p id="totalUser" class="text-[#1b140d] dark:text-white tracking-tight text-3xl font-bold"></p>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-[#07880e] text-sm">circle</span>
+<p class="text-[#07880e] text-sm font-bold">Live</p>
+<p class="text-[#9a734c] text-xs ml-1">Currently browsing</p>
+</div>
+</div>
+<div class="bg-white dark:bg-[#2d2116] flex flex-col gap-2 rounded-xl p-6 border border-[#e7dbcf] dark:border-[#3d2e1f] shadow-sm">
+<div class="flex justify-between items-start">
+<p class="text-[#9a734c] text-sm font-medium uppercase tracking-wider">Orders Today</p>
+<div class="bg-primary/10 p-2 rounded-lg text-primary">
+<span class="material-symbols-outlined">local_cafe</span>
+</div>
+</div>
+<p id="ordenes" class="text-[#1b140d] dark:text-white tracking-tight text-3xl font-bold"></p>
+<div class="flex items-center gap-1 mt-2">
+<span class="material-symbols-outlined text-[#07880e] text-sm">trending_up</span>
+<p class="text-[#07880e] text-sm font-bold">+8%</p>
+<p class="text-[#9a734c] text-xs">average $15.20 / order</p>
+</div>
+</div>
+</div>
+<!-- Main Layout Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+<!-- Sales Chart Section -->
+<div class="xl:col-span-2 bg-white dark:bg-[#2d2116] rounded-xl border border-[#e7dbcf] dark:border-[#3d2e1f] p-6 shadow-sm">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-bold">Weekly Revenue</h3>
+<div class="flex gap-2 botones">
+<button class="px-3 py-1 text-xs font-bold rounded bg-primary text-white  filtro-tiempo" data-categoria="week">Week</button>
+<button class="px-3 py-1 text-xs font-bold rounded bg-[#f3ede7] dark:bg-[#3d2e1f]  filtro-tiempo" data-categoria="month">Month</button>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex items-baseline gap-2">
+<p id="datos" class="text-[#1b140d] dark:text-white tracking-tight text-4xl font-bold">$</p>
+<p class="text-[#07880e] text-sm font-bold">▲ 15%</p>
+</div>
+<div class="grid h-[240px] grid-flow-col gap-4 items-end justify-items-center">
+<div class="group relative flex flex-col items-center w-full">
+<div class="bg-primary/30 group-hover:bg-primary transition-colors rounded-t-lg w-full" style="height: 70%;"></div>
+<p class="mt-2 text-[#9a734c] text-xs font-bold">Mon</p>
+</div>
+<div class="group relative flex flex-col items-center w-full">
+<div class="bg-primary/30 group-hover:bg-primary transition-colors rounded-t-lg w-full" style="height: 45%;"></div>
+<p class="mt-2 text-[#9a734c] text-xs font-bold">Tue</p>
+</div>
+<div class="group relative flex flex-col items-center w-full">
+<div class="bg-primary group-hover:bg-primary transition-colors rounded-t-lg w-full" style="height: 95%;"></div>
+<p class="mt-2 text-[#9a734c] text-xs font-bold">Wed</p>
+</div>
+<div class="group relative flex flex-col items-center w-full">
+<div class="bg-primary/30 group-hover:bg-primary transition-colors rounded-t-lg w-full" style="height: 60%;"></div>
+<p class="mt-2 text-[#9a734c] text-xs font-bold">Thu</p>
+</div>
+<div class="group relative flex flex-col items-center w-full">
+<div class="bg-primary/30 group-hover:bg-primary transition-colors rounded-t-lg w-full" style="height: 80%;"></div>
+<p class="mt-2 text-[#9a734c] text-xs font-bold">Fri</p>
+</div>
+<div class="group relative flex flex-col items-center w-full">
+<div class="bg-primary/30 group-hover:bg-primary transition-colors rounded-t-lg w-full" style="height: 50%;"></div>
+<p class="mt-2 text-[#9a734c] text-xs font-bold">Sat</p>
+</div>
+<div class="group relative flex flex-col items-center w-full">
+<div class="bg-primary/30 group-hover:bg-primary transition-colors rounded-t-lg w-full" style="height: 40%;"></div>
+<p class="mt-2 text-[#9a734c] text-xs font-bold">Sun</p>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+<!-- Footer Section Info -->
+<div class="flex justify-between items-center text-[#9a734c] text-xs">
+<p>© 2024 Bean &amp; Brew Coffee Shop Management</p>
+<div class="flex gap-4">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Support Center</a>
+<p>Last Sync: Today, 10:45 AM</p>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+<script type="module" src='../../app/pages/mostrarDbO.js'></script>
+
+</body></html>

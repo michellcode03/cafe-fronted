@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.footer-ola {
+  position: relative;
+  background: #ff9a3c;
+  margin-top: 100px;
+}
+
+.footer-wave {
+  position: relative;
+  background: #ec7f13;
+  margin-top: 150px;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: #ff9a3c;
+  clip-path: ellipse(100% 100% at 50% 100%);
+}
+
+.wave::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  clip-path: polygon(0 0, 100% 50%, 100% 100%, 0 100%);
+}
+
+.footer-content {
+  background: #ec7f13;
+  color: white;
+  padding: 80px 8% 30px;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 4rem;
+  margin-bottom: 3rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-column h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #a8e6cf;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.footer-column h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #a8e6cf 0%, transparent 100%);
+}
+
+.footer-column p {
+  font-family: 'Poppins', sans-serif;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.8rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.footer-column p:hover {
+  color: #a8e6cf;
+  padding-left: 5px;
+}
+
+.footer-column a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.footer-column a:hover {
+  color: #a8e6cf;
+  transform: translateX(5px);
+}
+
+/* Links de redes sociales */
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background: #a8e6cf;
+  transform: translateY(-5px) scale(1.1);
+}
+
+/* Lista con estilo */
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 0.8rem;
+  padding-left: 20px;
+  position: relative;
+}
+
+.footer-column ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #a8e6cf;
+  font-weight: bold;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(168, 230, 207, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+/* Newsletter (opcional) */
+.newsletter {
+  margin-top: 1.5rem;
+}
+
+.newsletter input {
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.newsletter input:focus {
+  outline: none;
+  border-color: #a8e6cf;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.newsletter input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.newsletter button {
+  padding: 0.8rem 2rem;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #a8e6cf 0%, #56ab2f 100%);
+  color: #1a472a;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.newsletter button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(168, 230, 207, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  
+  .footer-content {
+    padding: 60px 5% 30px;
+  }
+  
+  .footer-column h3 {
+    font-size: 1.3rem;
+  }
+  
+  .newsletter input,
+  .newsletter button {
+    width: 100%;
+    max-width: 100%;
+  }
+}

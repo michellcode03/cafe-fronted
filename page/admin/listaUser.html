@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registered Users List - Coffee Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ec7f13",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221910",
+                    },
+                    fontFamily: {
+                        "display": ["Be Vietnam Pro"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="font-display bg-background-light dark:bg-background-dark text-[#1b140d] dark:text-white min-h-screen">
+<div class="flex h-screen overflow-hidden">
+
+  <!-- SideNavBar -->
+  <aside class="w-64 flex flex-col border-r border-[#e7dbcf] dark:border-[#3d2f21] bg-white dark:bg-[#2a1f14]">
+    <div class="p-6 flex flex-col h-full">
+      <div class="flex items-center gap-3 mb-8">
+        <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA5a6XAdHTWeLz-dP6u609zwapd6ytgZ_Lt9Ia7F5nupJ7lOPlgNyPfjyKJOx-DdHP5cUDo3SaFelSQggPuKp1Fikcv3djN-vkTduPc22Db1bEAPdlHAoY9GyvyYFz65qhFIttajjzqhoqUuNqikVBz7GsXsXkRUBolT4pQziT6rSkzcr8wqzPmI7genCzhWM2aQ3CxdR6aUd2P1kNtH9Lij0zFciu3bZkmOaIpRJ9TXgWJLFtyfFNMizWRYdNjEd0ruvdKS2V4sjGo");'></div>
+        <div class="flex flex-col">
+          <h1 class="text-[#1b140d] dark:text-white text-base font-bold leading-tight">Coffee Admin</h1>
+          <p class="text-primary text-xs font-medium uppercase tracking-wider">Management</p>
+        </div>
+      </div>
+      <nav class="flex flex-col gap-1 flex-grow">
+        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#1b140d] dark:text-white hover:bg-background-light dark:hover:bg-[#3d2f21] transition-colors" href="./dashboar.html">
+          <span class="material-symbols-outlined text-xl">dashboard</span>
+          <span class="text-sm font-medium">Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-[#1b140d] dark:text-white hover:bg-background-light dark:hover:bg-[#3d2f21] transition-colors" href="./agregarProducto.html">
+          <span class="material-symbols-outlined text-xl">shopping_cart</span>
+          <span class="text-sm font-medium">Product</span>
+        </a>
+        <a class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-primary/10 text-primary transition-colors" href="#">
+          <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1">group</span>
+          <span class="text-sm font-bold">Users</span>
+        </a>
+      </nav>
+      <div class="mt-auto pt-6 border-t border-[#e7dbcf] dark:border-[#3d2f21]">
+        <div class="flex items-center gap-3 px-3">
+          <div class="size-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xs">AD</div>
+          <div class="flex flex-col">
+            <p class="text-sm font-bold leading-none">Admin User</p>
+            <p class="text-xs text-[#9a734c] mt-1">Sign Out</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="flex-1 flex flex-col overflow-y-auto bg-background-light dark:bg-background-dark">
+    <div class="max-w-[1200px] w-full mx-auto px-8 py-8">
+
+      <!-- PageHeading -->
+      <div class="flex flex-wrap items-end justify-between gap-4 mb-8">
+        <div class="flex flex-col gap-1">
+          <h2 class="text-[#1b140d] dark:text-white text-3xl font-black leading-tight tracking-tight">Registered Users</h2>
+          <p id="totalesAdU" class="text-[#9a734c] dark:text-[#c4a484] text-sm font-medium"></p>
+        </div>
+        <div class="flex gap-3">
+          <button onclick="document.getElementById('registerModalOverlay').classList.remove('hidden')" class="flex items-center gap-2 rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold transition-all hover:bg-[#d66f0d]">
+            <span class="material-symbols-outlined text-lg">person_add</span>
+            <span>Add New User</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Filters and Search -->
+      <div class="bg-white dark:bg-[#2a1f14] rounded-xl border border-[#e7dbcf] dark:border-[#3d2f21] mb-6 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between p-4 gap-4">
+          <div class="flex-1 min-w-[300px]">
+            <label class="relative flex items-center w-full">
+              <div class="absolute left-4 text-[#9a734c] pointer-events-none">
+                <span class="material-symbols-outlined">search</span>
+              </div>
+              <input id="searchInput" class="w-full h-12 pl-12 pr-4 rounded-lg text-[#1b140d] dark:text-white bg-background-light dark:bg-[#3d2f21] border-none focus:ring-2 focus:ring-primary/50 text-base placeholder:text-[#9a734c]" placeholder="Search by name, email, or ID..."/>
+            </label>
+          </div>
+          <div class="filtrar flex gap-2 items-center overflow-x-auto no-scrollbar pb-1 sm:pb-0">
+            <span class="text-xs font-bold text-[#9a734c] uppercase tracking-wider mr-2">Filter by:</span>
+            <button class="filtro-btn flex h-9 items-center justify-center gap-2 rounded-full bg-primary text-white px-4 text-sm font-medium transition-all" data-rol="todos">
+              <span>All Roles</span>
+            </button>
+            <button class="filtro-btn flex h-9 items-center justify-center gap-2 rounded-full bg-background-light dark:bg-[#3d2f21] text-[#1b140d] dark:text-white px-4 text-sm font-medium hover:bg-primary/10 transition-all border border-transparent hover:border-primary/20" data-rol="admin">
+              <span>Admins</span>
+            </button>
+            <button class="filtro-btn flex h-9 items-center justify-center gap-2 rounded-full bg-background-light dark:bg-[#3d2f21] text-[#1b140d] dark:text-white px-4 text-sm font-medium hover:bg-primary/10 transition-all border border-transparent hover:border-primary/20" data-rol="user">
+              <span>Customers</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="@container overflow-hidden">
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="border-b border-[#e7dbcf] dark:border-[#3d2f21] bg-background-light/50 dark:bg-[#3d2f21]/30">
+                  <th class="px-6 py-4 text-[#1b140d] dark:text-white text-xs font-bold uppercase tracking-wider w-[30%]">User Name</th>
+                  <th class="px-6 py-4 text-[#1b140d] dark:text-white text-xs font-bold uppercase tracking-wider w-[25%]">Email Address</th>
+                  <th class="px-6 py-4 text-[#1b140d] dark:text-white text-xs font-bold uppercase tracking-wider w-[15%]">Role</th>
+                  <th class="px-6 py-4 text-[#1b140d] dark:text-white text-xs font-bold uppercase tracking-wider w-[15%]">Date Joined</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-[#e7dbcf] dark:divide-[#3d2f21]"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- MODAL -->
+<div id="registerModalOverlay" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onclick="if(event.target===this)this.classList.add('hidden')">
+  <div class="bg-white dark:bg-[#2a1f14] rounded-xl border border-[#e7dbcf] dark:border-[#3d2f21] w-full max-w-md shadow-xl">
+
+    <div class="flex items-start justify-between p-6 border-b border-[#e7dbcf] dark:border-[#3d2f21]">
+      <div>
+        <h3 class="text-[#1b140d] dark:text-white text-lg font-black">Add New Admin</h3>
+        <p class="text-[#9a734c] text-xs mt-1">Fill in the details to register a new administrator</p>
+      </div>
+      <button onclick="document.getElementById('registerModalOverlay').classList.add('hidden')" class="border border-[#e7dbcf] dark:border-[#3d2f21] rounded-lg w-8 h-8 flex items-center justify-center text-[#9a734c] hover:bg-background-light dark:hover:bg-[#3d2f21] transition-colors">
+        <span class="material-symbols-outlined text-base">close</span>
+      </button>
+    </div>
+
+    <div class="p-6" id="registerForm">
+      <form id="registerFormElement">
+        <div class="flex flex-col w-full mb-4">
+          <p class="text-[#1b140d] dark:text-white text-xs font-bold uppercase tracking-wider pb-2">Full Name</p>
+          <input id="registerName" class="w-full h-12 rounded-lg border border-[#e7dbcf] dark:border-[#3d2f21] bg-background-light dark:bg-[#3d2f21] text-[#1b140d] dark:text-white px-4 text-sm placeholder:text-[#9a734c] focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Enter full name" type="text" required/>
+        </div>
+        <div class="flex flex-col w-full mb-4">
+          <p class="text-[#1b140d] dark:text-white text-xs font-bold uppercase tracking-wider pb-2">Email Address</p>
+          <input id="registerEmail" class="w-full h-12 rounded-lg border border-[#e7dbcf] dark:border-[#3d2f21] bg-background-light dark:bg-[#3d2f21] text-[#1b140d] dark:text-white px-4 text-sm placeholder:text-[#9a734c] focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Enter email address" type="email" required/>
+        </div>
+        <div class="flex flex-col w-full mb-4">
+          <p class="text-[#1b140d] dark:text-white text-xs font-bold uppercase tracking-wider pb-2">Password</p>
+          <input id="registerPassword" class="w-full h-12 rounded-lg border border-[#e7dbcf] dark:border-[#3d2f21] bg-background-light dark:bg-[#3d2f21] text-[#1b140d] dark:text-white px-4 text-sm placeholder:text-[#9a734c] focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Create a password" type="password" required/>
+        </div>
+<div class="flex flex-col w-full mb-6">
+  <p class="text-[#1b140d] dark:text-white text-xs font-bold uppercase tracking-wider pb-2">Role</p>
+  <label class="flex items-center gap-3 cursor-pointer">
+    <input id="registerRole" name="registerRole" type="checkbox" value="admin" checked class="w-4 h-4 accent-primary cursor-pointer"/>
+    <span class="text-sm font-bold text-[#1b140d] dark:text-white">Admin</span>
+  </label>
+</div>
+        <button type="submit" class="w-full h-12 bg-primary hover:bg-[#d66f0d] text-white font-bold text-sm rounded-lg transition-all shadow-lg shadow-primary/20">
+          Create Account
+        </button>
+      </form>
+    </div>
+
+  </div>
+</div>
+
+<script type="module" src='../../app/pages/admin.js'></script>
+<script type="module" src='../../app/pages/registroAdmin.js'></script>
+</body>

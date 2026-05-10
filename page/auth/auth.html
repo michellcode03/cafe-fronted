@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Login & Registration | Coffee Shop</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#ec7f13",
+                "background-light": "#f8f7f6",
+                "background-dark": "#221910",
+              },
+              fontFamily: {
+                "display": ["Be Vietnam Pro"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill-1 {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display min-h-screen">
+    <div class="flex min-h-screen flex-col lg:flex-row">
+        <!-- Left Section: Visual Hero (Visible on Desktop) -->
+        <div class="relative hidden lg:flex lg:w-1/2 items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDFV_R-1wbGydzC9gXChctobIQGg4LLG3j2qf2tsDoJRLuKrOLDTPS0-wuTL9vMVX5wDFPtMH0AhB4kCBulVsuiJa4fH8sSJ2SbP0lBsDi6tb4uTrZXkcLIrCPjV5kgs4qrwZm8-1LnZXjclP2tFwDM3jWqTcZSsx3qfI_Gwm1F_3RgpoW9FqZ_OJkMPz7P4x81ef9bov7RtBcUet3ph2sItthwKIMSxWoU-Qg7Ahu_zodNAz0wXOcpLIBNmIsi8jCwa2Fvff0Dm19-");'>
+            </div>
+            <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+            <div class="relative z-10 p-12 max-w-xl text-white">
+                <h1 class="text-6xl font-black leading-tight tracking-tight mb-6">
+                    Freshly brewed moments await.
+                </h1>
+                <p class="text-xl font-normal opacity-90 mb-8">
+                    Experience the finest coffee culture and join our community of connoisseurs.
+                </p>
+                <div class="flex items-center gap-4">
+                    <div class="flex -space-x-3">
+                        <div class="h-10 w-10 rounded-full border-2 border-white bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCLFehR6FnLfuUidhW2-B3olYLgHT_EF4FKKI5qhRs5RNWyPaD5_kTPFaO-29qnLzx94TxbMNlGDcQujQAX8FATfIUns4qhS4xEO1oDk4-ONJJrCMw5mAkK6SXq9oO8nqWXzha7se71AZ-6PWvaViGc_Ruut65gcYkxx6TvcwRofkqsOuPEiQi8hTJ7aLkYte6MBpSkDmTYgaJV-XO9HsAyxofNST3UnKp6gkVZ175IxJ04biww2TTRYnLJ6vkRRSf6J8TqVbImmS79")'></div>
+                        <div class="h-10 w-10 rounded-full border-2 border-white bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB99SyhxA8DDfm12fZkltpekdStXOi2e3MKn0EtWCiQfupc6f1AQy-epAdcooC5jaTPJoabR-BPfAkFjfQ3Vo2yzCT_OOxS9c2-SKCethlmjJvLr2aas3iqX0kly0sLADAf_USnJ29JxOqtvP9xbiPXwBjV7PR8WWqBphJukYyiTYASudm0ucUFEg0TUbaRAudH52UjcMuJGhDIwbt_V9Z3n2z2AwUk05j8WhDNDAIXfpd4peSRVy9pgFB84zhrZZVez206_dgl_7_J")'></div>
+                        <div class="h-10 w-10 rounded-full border-2 border-white bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBwKQ4pWoB5LtVqMSyC2NjYrrLUEhEFP2pDMmZIDyvTUraCu-1QZAOMjCFXG3QQTg8wxbCOJ8D9xV6frfMr0LpmsW34oTWrv87JZTVGVY97ephvyN1GPA0UZ2H3nM7qc8V8lFc6LwtgCAOTMAp45qg3GNhAKkIRPiSijaNb3Ek7CdyPcBlO3qB2dt9SQ8rjk1i8BarBRi6jU7ZBP7dbzQXFuyeb4UgJE9Ro2eMUixuV4uUAwPAtSicDRaNZom5FfiaTYy5tOhYWSDq")'></div>
+                    </div>
+                    <span class="text-sm font-medium">Join 2,000+ coffee lovers</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Section: Authentication Form -->
+        <div class="flex-1 flex items-center justify-center p-6 sm:p-12 md:p-16 lg:p-24 bg-background-light dark:bg-background-dark">
+            <div class="w-full max-w-[480px] space-y-8">
+                <!-- Logo/Branding for Mobile -->
+                <div class="lg:hidden flex items-center gap-3 mb-8">
+                    <div class="bg-primary p-2 rounded-lg text-white">
+                        <span class="material-symbols-outlined text-3xl">coffee</span>
+                    </div>
+                    <span class="text-2xl font-black text-[#1b140d] dark:text-white">Coffee & Cream</span>
+                </div>
+
+                <div class="space-y-2">
+                    <h2 id="formTitle" class="text-3xl font-black text-[#1b140d] dark:text-white tracking-tight">Welcome Back</h2>
+                    <p id="formSubtitle" class="text-[#9a734c] dark:text-[#cbb094] text-base">Sign in to your account to continue.</p>
+                </div>
+
+                <!-- Tabs -->
+                <div class="pb-3">
+                    <div class="flex border-b border-[#e7dbcf] dark:border-white/10 px-0 gap-8">
+                        <a class="tab-link flex flex-col items-center justify-center border-b-[3px] border-b-primary text-[#1b140d] dark:text-white pb-[13px] pt-4 cursor-pointer" data-tab="login">
+                            <p class="text-sm font-bold leading-normal tracking-[0.015em]">Sign In</p>
+                        </a>
+                        <a class="tab-link flex flex-col items-center justify-center border-b-[3px] border-b-transparent text-[#9a734c] dark:text-[#cbb094] pb-[13px] pt-4 cursor-pointer" data-tab="register">
+                            <p class="text-sm font-bold leading-normal tracking-[0.015em]">Create Account</p>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Login Form -->
+                <div id="loginForm" class="tab-content active space-y-5">
+                    <form id="loginFormElement">
+                        <!-- Email Field -->
+                        <div class="flex flex-col w-full mb-5">
+                            <p class="text-[#1b140d] dark:text-white text-sm font-bold leading-normal pb-2">Email Address</p>
+                            <input id="loginEmail" class="form-input flex w-full rounded-lg text-[#1b140d] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 focus:border-primary h-14 placeholder:text-[#9a734c] p-[15px] text-base font-normal leading-normal" placeholder="Enter your email" type="email" required/>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="flex flex-col w-full mb-5">
+                            <div class="flex justify-between items-center pb-2">
+                                <p class="text-[#1b140d] dark:text-white text-sm font-bold leading-normal">Password</p>
+                                <a class="text-primary text-xs font-bold hover:underline" href="#">Forgot Password?</a>
+                            </div>
+                            <div class="flex w-full items-stretch rounded-lg group">
+                                <input id="loginPassword" class="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#1b140d] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 focus:border-primary h-14 placeholder:text-[#9a734c] p-[15px] rounded-r-none border-r-0 pr-2 text-base font-normal leading-normal" placeholder="Enter your password" type="password" required/>
+                                <div class="text-[#9a734c] dark:text-[#cbb094] flex border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 items-center justify-center pr-[15px] rounded-r-lg border-l-0">
+                                    <span class="material-symbols-outlined cursor-pointer hover:text-primary" onclick="togglePassword('loginPassword')">visibility</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Role Selection -->
+                        <!-- <div class="flex flex-col w-full gap-3 pt-2 mb-5">
+                            <p class="text-[#1b140d] dark:text-white text-sm font-bold leading-normal">I am a:</p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <label class="relative flex cursor-pointer items-center justify-center rounded-lg border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 px-4 py-3 hover:border-primary/50 transition-colors">
+                                    <input checked class="peer sr-only" name="loginRole" type="radio" value="user"/>
+                                    <span class="text-sm font-bold text-[#1b140d] dark:text-white peer-checked:text-primary">Customer</span>
+                                    <div class="absolute -top-1.5 -right-1.5 hidden peer-checked:block text-primary">
+                                        <span class="material-symbols-outlined text-lg fill-1">check_circle</span>
+                                    </div>
+                                </label>
+                                <label class="relative flex cursor-pointer items-center justify-center rounded-lg border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 px-4 py-3 hover:border-primary/50 transition-colors">
+                                    <input class="peer sr-only" name="loginRole" type="radio" value="admin"/>
+                                    <span class="text-sm font-bold text-[#1b140d] dark:text-white peer-checked:text-primary">Admin</span>
+                                    <div class="absolute -top-1.5 -right-1.5 hidden peer-checked:block text-primary">
+                                        <span class="material-symbols-outlined text-lg fill-1">check_circle</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                         -->
+
+                        <!-- Submit Button -->
+                        <div class="pt-4 space-y-4">
+                            <button type="submit" class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                                <span class="truncate">Sign In to Your Account</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Register Form -->
+                <div id="registerForm" class="tab-content space-y-5">
+                    <form id="registerFormElement">
+                        <!-- Name Field -->
+                        <div class="flex flex-col w-full mb-5">
+                            <p class="text-[#1b140d] dark:text-white text-sm font-bold leading-normal pb-2">Full Name</p>
+                            <input id="registerName" class="form-input flex w-full rounded-lg text-[#1b140d] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 focus:border-primary h-14 placeholder:text-[#9a734c] p-[15px] text-base font-normal leading-normal" placeholder="Enter your full name" type="text" required/>
+                        </div>
+
+                        <!-- Email Field -->
+                        <div class="flex flex-col w-full mb-5">
+                            <p class="text-[#1b140d] dark:text-white text-sm font-bold leading-normal pb-2">Email Address</p>
+                            <input id="registerEmail" class="form-input flex w-full rounded-lg text-[#1b140d] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 focus:border-primary h-14 placeholder:text-[#9a734c] p-[15px] text-base font-normal leading-normal" placeholder="Enter your email" type="email" required/>
+                        </div>
+
+                        <!-- Password Field -->
+                        <div class="flex flex-col w-full mb-5">
+                            <p class="text-[#1b140d] dark:text-white text-sm font-bold leading-normal pb-2">Password</p>
+                            <div class="flex w-full items-stretch rounded-lg group">
+                                <input id="registerPassword" class="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#1b140d] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 focus:border-primary h-14 placeholder:text-[#9a734c] p-[15px] rounded-r-none border-r-0 pr-2 text-base font-normal leading-normal" placeholder="Create a password" type="password" required/>
+                                <div class="text-[#9a734c] dark:text-[#cbb094] flex border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 items-center justify-center pr-[15px] rounded-r-lg border-l-0">
+                                    <span class="material-symbols-outlined cursor-pointer hover:text-primary" onclick="togglePassword('registerPassword')">visibility</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Confirm Password Field -->
+                        <div class="flex flex-col w-full mb-5">
+                            <p class="text-[#1b140d] dark:text-white text-sm font-bold leading-normal pb-2">Confirm Password</p>
+                            <div class="flex w-full items-stretch rounded-lg group">
+                                <input id="registerConfirmPassword" class="form-input flex w-full min-w-0 flex-1 rounded-lg text-[#1b140d] focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 focus:border-primary h-14 placeholder:text-[#9a734c] p-[15px] rounded-r-none border-r-0 pr-2 text-base font-normal leading-normal" placeholder="Confirm your password" type="password" required/>
+                                <div class="text-[#9a734c] dark:text-[#cbb094] flex border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 items-center justify-center pr-[15px] rounded-r-lg border-l-0">
+                                    <span class="material-symbols-outlined cursor-pointer hover:text-primary" onclick="togglePassword('registerConfirmPassword')">visibility</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Role Selection -->
+                        <!-- <div class="flex flex-col w-full gap-3 pt-2 mb-5">
+                            <p class="text-[#1b140d] dark:text-white text-sm font-bold leading-normal">I want to register as:</p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <label class="relative flex cursor-pointer items-center justify-center rounded-lg border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 px-4 py-3 hover:border-primary/50 transition-colors">
+                                     <input checked class="peer sr-only" name="registerRole" type="radio" value="user"/>
+                                    <span class="text-sm font-bold text-[#1b140d] dark:text-white peer-checked:text-primary">Customer</span>
+                                    <div class="absolute -top-1.5 -right-1.5 hidden peer-checked:block text-primary">
+                                        <span class="material-symbols-outlined text-lg fill-1">check_circle</span>
+                                    </div>
+                                </label>
+                                <label class="relative flex cursor-pointer items-center justify-center rounded-lg border border-[#e7dbcf] dark:border-white/20 bg-white dark:bg-white/5 px-4 py-3 hover:border-primary/50 transition-colors">
+                                    <input class="peer sr-only" name="registerRole" type="radio" value="admin"/>
+                                    <span class="text-sm font-bold text-[#1b140d] dark:text-white peer-checked:text-primary">Admin</span>
+                                    <div class="absolute -top-1.5 -right-1.5 hidden peer-checked:block text-primary">
+                                        <span class="material-symbols-outlined text-lg fill-1">check_circle</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div> -->
+
+                        <!-- Submit Button -->
+                        <div class="pt-4 space-y-4">
+                            <button type="submit" class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-14 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                                <span class="truncate">Create Your Account</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Footer Links -->
+                <p class="text-center text-xs text-[#9a734c] dark:text-[#cbb094] pt-8">
+                    By continuing, you agree to Coffee & Cream's 
+                    <a class="underline font-medium hover:text-primary" href="#">Terms of Service</a> and 
+                    <a class="underline font-medium hover:text-primary" href="#">Privacy Policy</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+<script>
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const formTitle = document.getElementById('formTitle');
+    const formSubtitle = document.getElementById('formSubtitle');
+
+    tabLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const tabName = link.getAttribute('data-tab');
+            
+            tabLinks.forEach(l => {
+                l.classList.remove('border-b-primary', 'text-[#1b140d]', 'dark:text-white');
+                l.classList.add('border-b-transparent', 'text-[#9a734c]', 'dark:text-[#cbb094]');
+            });
+            
+            link.classList.add('border-b-primary', 'text-[#1b140d]', 'dark:text-white');
+            link.classList.remove('border-b-transparent', 'text-[#9a734c]', 'dark:text-[#cbb094]');
+            
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            if (tabName === 'login') {
+                document.getElementById('loginForm').classList.add('active');
+                formTitle.textContent = 'Welcome Back';
+                formSubtitle.textContent = 'Sign in to your account to continue.';
+            } else {
+                document.getElementById('registerForm').classList.add('active');
+                formTitle.textContent = 'Create Account';
+                formSubtitle.textContent = 'Join our community of coffee lovers.';
+            }
+        });
+    });
+
+    function togglePassword(inputId) {
+        const input = document.getElementById(inputId);
+        const icon = input.parentElement.querySelector('.material-symbols-outlined');
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.textContent = 'visibility_off';
+        } else {
+            input.type = 'password';
+            icon.textContent = 'visibility';
+        }
+    }
+</script>
+
+<script type="module" src="../../app/pages/registro.js"></script>
+<script type="module" src="../../app/pages/login.js"></script>
+
+</body>
+</html>
